@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { GiHearts } from "react-icons/gi";
-import styles from "./BookCard.module.css"
-function BookCrad({ data: { title, author, image, language, pages } }) {
+import styles from "./BookCard.module.css";
+function BookCrad({ data, handleLikeList }) {
+  const { title, author, image, language, pages } = data;
   const [like, setLike] = useState(false);
   const likeHandler = () => {
+    handleLikeList(data, like);
     setLike((like) => !like);
   };
   return (
